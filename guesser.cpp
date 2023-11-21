@@ -125,7 +125,6 @@ bool Guesser::isLetter(char c) {
 
 void Guesser::editColors(unsigned int n) {
     unsigned int selectedLetter = 0;
-    int c;
     bool loop = true;
     clearTerminal();
     std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
@@ -323,12 +322,15 @@ void Guesser::setGuessCount() {
 bool Guesser::checkOverflow(std::string s) {
     // Get the length of UINT_MAX
     unsigned int max = UINT_MAX;
+    // maxSize holds the length of UINT_MAX
     short maxSize = 0;
     while (max > 0) {
         max /= 10;
         maxSize++;
     }
     // Compare this length to length of s
+    // ! This may throw a warning when compiling because s.length() is an long long unsigned int and maxSize is a short
+    // ! This is okay because maxSize will only hold a small number, the length of UINT_MAX (not max value)
     if (s.length() > maxSize) {
         return false;
     }
@@ -527,7 +529,7 @@ std::string Guesser::bestGuessMRC(std::vector<std::string> possibleSolutions, st
 
     // Finally, every valid guess has a count bound to it, return the guess that has the lowest.
     // This guess, in the worst-case scenario, will leave the least amount of possible solutions for the next guess.
-
+    return "not implemented";
 }
 
 std::vector<Color> Guesser::calculateColorResult(std::string guess, std::string solution) {
