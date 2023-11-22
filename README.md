@@ -4,9 +4,7 @@ Tool that can guess wordle solution based on your input and the given results.
 It uses a terminal-based GUI to set wordsize, guess count and to input the results that Wordle gives you.
 It can currently only show the possible solutions based on your inputs. The functionality to calculate the best next guess still needs to be made.
 
-Currently only works on Windows compilers because I use the `conio.h` library for key inputs. For Linux I will instead use `curses` or `ncurses`. This is still W.I.P.
-
-Relevant: https://stackoverflow.com/questions/6565924/g-conio-h-no-such-file-or-directory
+Currently only works on Windows compilers because I use the `conio.h` library for key inputs. For Linux I need to use a different method of getting keyboard input.
 
 Text files "guesses.txt" and "solutions.txt" can be used when prompted. You can also use your own, make sure they contain 1 word per line, all words are the same size and all words are the size of the word size you gave earlier, this is checked when the files are read.
 

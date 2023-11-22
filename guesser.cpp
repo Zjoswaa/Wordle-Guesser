@@ -6,35 +6,35 @@ Guesser::Guesser() {
     setGuessCount();
     initGrid();
 
-    //std::cout << wordMatchesGOGCode("woewi", "wawer", std::vector<Color> {GREEN, GREY, GREY, ORANGE, GREY});
+    // std::cout << wordMatchesGOGCode("woewi", "wawer", std::vector<Color> {GREEN, GREY, GREY, ORANGE, GREY});
 
-//    std::vector<Color> v = calculateColorResult("wowal", "water");
-//    for (unsigned int i = 0; i < v.size(); i++) {
-//        if (v[i] == 0) {
-//            std::cout << "GREY ";
-//        } else if (v[i] == 1) {
-//            std::cout << "ORANGE ";
-//        } else {
-//            std::cout << "GREEN ";
-//        }
-//    }
-//    std::cout << std::endl;
+    // std::vector<Color> v = calculateColorResult("wowal", "water");
+    // for (unsigned int i = 0; i < v.size(); i++) {
+    //     if (v[i] == 0) {
+    //         std::cout << "GREY ";
+    //     } else if (v[i] == 1) {
+    //         std::cout << "ORANGE ";
+    //     } else {
+    //         std::cout << "GREEN ";
+    //     }
+    // }
+    // std::cout << std::endl;
 
     initValidGuessesList();
-//    checkVector(validGuessesList);
+    // checkVector(validGuessesList);
     initWordList();
-//    checkVector(wordList);
+    // checkVector(wordList);
     clearTerminal();
 
-//    orangeLetters.push_back(std::make_pair('t',0));
-//    orangeLetters.push_back(std::make_pair('h',1));
-//    orangeLetters.push_back(std::make_pair('r',2));
-//    std::cout << wordMatchesOrange("tethe");
+    // orangeLetters.push_back(std::make_pair('t',0));
+    // orangeLetters.push_back(std::make_pair('h',1));
+    // orangeLetters.push_back(std::make_pair('r',2));
+    // std::cout << wordMatchesOrange("tethe");
 
-//    greenLetters.push_back(std::make_pair('t',0));
-//    greenLetters.push_back(std::make_pair('h',1));
-//    greenLetters.push_back(std::make_pair('r',2));
-//    std::cout << wordMatchesGreen("thaax");
+    // greenLetters.push_back(std::make_pair('t',0));
+    // greenLetters.push_back(std::make_pair('h',1));
+    // greenLetters.push_back(std::make_pair('r',2));
+    // std::cout << wordMatchesGreen("thaax");
 
     for (unsigned int i = 0; i < guessCount; i++) {
         inputWord(i);
@@ -56,24 +56,24 @@ Guesser::Guesser() {
         auto ms_int = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
         std::cout << " (took: " << ms_int.count() / 1000 << " sec)" << std::endl;
 
-//        std::cout << "Grey: " << greyLetters << std::endl;
-//        std::cout << "Orange: ";
-//        for (unsigned int j = 0; j < orangeLetters.size(); j++) {
-//            std::cout << orangeLetters[j].first << " " << orangeLetters[j].second << " ";
-//        }
-//        std::cout << std::endl;
-//        std::cout << "Green: ";
-//        for (unsigned int j = 0; j < greenLetters.size(); j++) {
-//            std::cout << greenLetters[j].first << " " << greenLetters[j].second << " ";
-//        }
-//        std::cout << std::endl;
-//
-//
-//        std::cout << "Remaining possible solutions: " << wordList.size() << std::endl;
-//        for (unsigned int j = 0; j < wordList.size(); j++) {
-//            std::cout << wordList[j] << " ";
-//        }
-//        std::cout << std::endl;
+        // std::cout << "Grey: " << greyLetters << std::endl;
+        // std::cout << "Orange: ";
+        // for (unsigned int j = 0; j < orangeLetters.size(); j++) {
+        //     std::cout << orangeLetters[j].first << " " << orangeLetters[j].second << " ";
+        // }
+        // std::cout << std::endl;
+        // std::cout << "Green: ";
+        // for (unsigned int j = 0; j < greenLetters.size(); j++) {
+        //     std::cout << greenLetters[j].first << " " << greenLetters[j].second << " ";
+        // }
+        // std::cout << std::endl;
+
+
+        // std::cout << "Remaining possible solutions: " << wordList.size() << std::endl;
+        // for (unsigned int j = 0; j < wordList.size(); j++) {
+        //     std::cout << wordList[j] << " ";
+        // }
+        // std::cout << std::endl;
     }
 }
 
@@ -125,14 +125,15 @@ bool Guesser::isLetter(char c) {
 
 void Guesser::editColors(unsigned int n) {
     unsigned int selectedLetter = 0;
-    bool loop = true;
     clearTerminal();
     std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
     printGridSelected(n, selectedLetter);
+    #ifdef _WIN32
+    bool loop = true;
     while (loop) {
         switch((getch())) {
             case KEY_UP:
-//                std::cout << "up" << std::endl;
+                // std::cout << "up" << std::endl;
                 switch (grid[n][selectedLetter].color) {
                     case GREY:
                         grid[n][selectedLetter].color = ORANGE;
@@ -147,13 +148,13 @@ void Guesser::editColors(unsigned int n) {
                 clearTerminal();
                 std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
                 printGridSelected(n, selectedLetter);
-//                for (unsigned int i = 0; i < wordSize; i++) {
-//                    std::cout << grid[n][i].color;
-//                }
-//                std::cout << std::endl;
+                // for (unsigned int i = 0; i < wordSize; i++) {
+                //     std::cout << grid[n][i].color;
+                // }
+                // std::cout << std::endl;
                 break;
             case KEY_DOWN:
-//                std::cout << "down" << std::endl;
+                // std::cout << "down" << std::endl;
                 switch (grid[n][selectedLetter].color) {
                     case GREY:
                         grid[n][selectedLetter].color = GREEN;
@@ -168,10 +169,10 @@ void Guesser::editColors(unsigned int n) {
                 clearTerminal();
                 std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
                 printGridSelected(n, selectedLetter);
-//                for (unsigned int i = 0; i < wordSize; i++) {
-//                    std::cout << grid[n][i].color;
-//                }
-//                std::cout << std::endl;
+                // for (unsigned int i = 0; i < wordSize; i++) {
+                //     std::cout << grid[n][i].color;
+                // }
+                // std::cout << std::endl;
                 break;
             case KEY_LEFT:
                 if (selectedLetter == 0) {
@@ -201,6 +202,14 @@ void Guesser::editColors(unsigned int n) {
                 break;
         }
     }
+    #endif
+    #ifdef linux
+    // TODO: Linux key press logic
+    bool loop = true;
+    while (loop) {
+        
+    }
+    #endif
 }
 
 void Guesser::printGridSelected(unsigned int n, unsigned int selected) {

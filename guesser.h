@@ -1,11 +1,19 @@
 #ifndef GUESSER_H
 #define GUESSER_H
 
+// Key press logic uses a different library on Windows (conio.h) and Linux
+#ifdef _WIN32
+#include <conio.h>
+#endif
+#ifdef linux
+#include <climits>
+// TODO: Add a library for Linux key press logic
+#endif
+
 #include "color.h"
 #include "constants.h"
 #include "container.h"
 #include <chrono>
-#include <conio.h>
 #include <cstdint>
 #include <fstream>
 #include <iostream>
