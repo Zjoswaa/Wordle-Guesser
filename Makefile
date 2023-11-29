@@ -7,14 +7,14 @@ OBJS = main.o container.o guesser.o
 Guesser: $(OBJS)
 	$(CC) $(OBJS) -o Guesser
 
-container.o: container.cpp container.h color.h
-	$(CC) $(FLAGS) container.cpp
+container.o: src/container.cpp src/container.h src/color.h
+	$(CC) $(FLAGS) src/container.cpp
 
-guesser.o: guesser.cpp guesser.h constants.h container.h color.h
-	$(CC) $(FLAGS) guesser.cpp
+guesser.o: src/guesser.cpp src/guesser.h src/constants.h src/container.h src/color.h
+	$(CC) $(FLAGS) src/guesser.cpp
 
-main.o: main.cpp container.h guesser.h
-	$(CC) $(FLAGS) main.cpp
+main.o: src/main.cpp src/container.h src/guesser.h
+	$(CC) $(FLAGS) src/main.cpp
 
 clean:
-	rm *.o ./Guesser
+	rm *.o Guesser
