@@ -329,9 +329,8 @@ void Guesser::setGuessCount() {
 }
 
 bool Guesser::checkOverflow(std::string s) {
-    // Get the length of UINT_MAX
     unsigned int max = UINT_MAX;
-    // maxSize holds the length of UINT_MAX
+    // maxSize holds the length of UINT_MAX (ex. if UINT_MAX = 4294967295, maxSize will be 10 because "4294967295" holds 10 characters)
     short maxSize = 0;
     while (max > 0) {
         max /= 10;
@@ -522,8 +521,8 @@ void Guesser::updateWordList() {
 }
 
 bool Guesser::vectorContainsPair(std::vector<std::pair<char, unsigned int>> v, char c, unsigned int i) {
-    for (unsigned int _i = 0; _i < v.size(); _i++) {
-        if (v[_i].first == c && v[_i].second == i) {
+    for (unsigned int y = 0; y < v.size(); y++) {
+        if (v[y].first == c && v[y].second == i) {
             return true;
         }
     }
@@ -538,6 +537,9 @@ std::string Guesser::bestGuessMRC(std::vector<std::string> possibleSolutions, st
 
     // Finally, every valid guess has a count bound to it, return the guess that has the lowest.
     // This guess, in the worst-case scenario, will leave the least amount of possible solutions for the next guess.
+    for (unsigned int i = 0; i < validGuessesList.size(); i++) {
+
+    }
     return "not implemented";
 }
 
