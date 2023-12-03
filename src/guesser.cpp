@@ -207,7 +207,7 @@ void Guesser::editColors(unsigned int n) {
     // TODO: Linux key press logic
     bool loop = true;
     while (loop) {
-        
+
     }
     #endif
 }
