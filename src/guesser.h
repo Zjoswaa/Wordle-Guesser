@@ -109,7 +109,7 @@ private:
     void updateOrangeLetters(unsigned int n);
 
     // Checks if word matches the current green letter constraints
-    bool wordMatchesGreen(std::string word);
+    bool wordMatchesGreen(std::string word) const;
 
     // Updates the letters that are marked green, letters uniquely saved as pairs containing the letter and the index in the word at which it was found
     void updateGreenLetters(unsigned int n);
@@ -121,7 +121,7 @@ private:
     bool vectorContainsPair(std::vector<std::pair<char, unsigned int>> v, char c, unsigned int i);
 
     // Calculates the best guess from validGuesses based on the possible solutions, uses a Max Remaining Candidates algorithm (MRC)
-    std::string bestGuessMRC(std::vector<std::string> possibleSolutions, std::vector<std::string> validGuesses);
+    std::string bestGuessMRC(std::vector<std::string> possibleSolutions, std::vector<std::string> validGuesses) const;
 
     // Returns the colors the guess g would have if the solution was s
     std::vector<Color> calculateColorResult(std::string guess, std::string solution);
@@ -130,7 +130,7 @@ private:
     bool wordMatchesGOGCode(std::string word, std::string solution, std::vector<Color> code);
 
     // Checks if guess has already been done
-    bool guessDone(std::string word);
+    bool guessDone(std::string word) const;
 };
 
 #endif

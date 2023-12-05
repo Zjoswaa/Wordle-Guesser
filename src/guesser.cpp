@@ -488,7 +488,7 @@ void Guesser::updateOrangeLetters(unsigned int n) {
     }
 }
 
-bool Guesser::wordMatchesGreen(std::string word) {
+bool Guesser::wordMatchesGreen(std::string word) const {
     for (unsigned int i = 0; i < greenLetters.size(); i++) {
         if (word[greenLetters[i].second] != greenLetters[i].first) {
             return false;
@@ -529,7 +529,7 @@ bool Guesser::vectorContainsPair(std::vector<std::pair<char, unsigned int>> v, c
     return false;
 }
 
-std::string Guesser::bestGuessMRC(std::vector<std::string> possibleSolutions, std::vector<std::string> validGuesses) {
+std::string Guesser::bestGuessMRC(std::vector<std::string> possibleSolutions, std::vector<std::string> validGuesses) const {
     // For every valid guess do the following:
     // - Check the count of grey, orange and green letters that the guess would have against every possible solution
     // - Based on these results, filter the possible solutions that abide by this grey-orange-green result and save how many there are
@@ -597,7 +597,7 @@ bool Guesser::wordMatchesGOGCode(std::string word, std::string solution, std::ve
     return false;
 }
 
-bool Guesser::guessDone(std::string word) {
+bool Guesser::guessDone(std::string word) const {
     for (unsigned int i = 0; i < guessedWords.size(); i++) {
         if (guessedWords[i] == word) {
             return true;

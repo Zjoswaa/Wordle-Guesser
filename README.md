@@ -15,13 +15,13 @@ Make sure the `guesses.txt` and `solutions.txt` files are in the same directory 
 ### Windows
 In the root directory, run `cmake -S .\src\ -B .\build\ `. This will generate the build files, generally either Visual Studio solution files or a Makefile.
 
-If a Makefile was made `cd .\build\ && make`. Then `.\Wordle_Guesser.exe` to run the program.
+If a Makefile was made `cd .\build\ && make`. Then `.\Guesser.exe` to run the program.
 
 If a Visual Studio Solution was made. Open `Wordle_Guesser.sln` located in the `build` directory. Then build the project in Visual Studio.
 ### Linux
 In the root directory, run `cmake -S ./src/ -B ./build/`. This will generate the build files. Generally a Makefile.
 
-If a Makefile was made `cd ./build/ && make`. Then `./Wordle_Guesser` to run the program.
+If a Makefile was made `cd ./build/ && make`. Then `./Guesser` to run the program.
 > **_NOTE:_**  The Linux version can compile but does not work properly yet because of the `conio.h` library not being available for Linux.
 
 ---
