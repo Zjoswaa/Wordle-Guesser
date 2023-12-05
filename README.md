@@ -17,7 +17,7 @@ In the root directory, run `cmake -S .\src\ -B .\build\ `. This will generate th
 
 If a Makefile was made `cd .\build\ && make`. Then `.\Guesser.exe` to run the program.
 
-If a Visual Studio Solution was made. Open `Wordle_Guesser.sln` located in the `build` directory. Then build the project in Visual Studio.
+If a Visual Studio Solution was made. Open `Guesser.sln` located in the `build` directory. Then build the project in Visual Studio.
 ### Linux
 In the root directory, run `cmake -S ./src/ -B ./build/`. This will generate the build files. Generally a Makefile.
 
