@@ -26,6 +26,6 @@ If a Makefile was made `cd ./build/ && make`. Then `./Guesser` to run the progra
 
 ---
 ## Wordlist sources
-solutions.txt: https://gist.github.com/cfreshman/a03ef2cba789d8cf00c08f767e0fad7b
+[solutions.txt](https://gist.github.com/cfreshman/a03ef2cba789d8cf00c08f767e0fad7b)
 
-guesses.txt: https://gist.github.com/cfreshman/d97dbe7004522f7bc52ed2a6e22e2c04
+[guesses.txt](https://gist.github.com/cfreshman/d97dbe7004522f7bc52ed2a6e22e2c04)
