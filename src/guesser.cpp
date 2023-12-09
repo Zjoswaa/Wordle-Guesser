@@ -132,7 +132,7 @@ void Guesser::editColors(unsigned int n) {
     bool loop = true;
     while (loop) {
         switch((_getch())) {
-            case KEY_UP:
+            case WIN_KEY_UP:
                 // std::cout << "up" << std::endl;
                 switch (grid[n][selectedLetter].color) {
                     case GREY:
@@ -153,7 +153,7 @@ void Guesser::editColors(unsigned int n) {
                 // }
                 // std::cout << std::endl;
                 break;
-            case KEY_DOWN:
+            case WIN_KEY_DOWN:
                 // std::cout << "down" << std::endl;
                 switch (grid[n][selectedLetter].color) {
                     case GREY:
@@ -165,6 +165,85 @@ void Guesser::editColors(unsigned int n) {
                     case GREEN:
                         grid[n][selectedLetter].color = ORANGE;
                         break;
+                }
+                clearTerminal();
+                std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
+                printGridSelected(n, selectedLetter);
+                // for (unsigned int i = 0; i < wordSize; i++) {
+                //     std::cout << grid[n][i].color;
+                // }
+                // std::cout << std::endl;
+                break;
+            case WIN_KEY_LEFT:
+                if (selectedLetter == 0) {
+                    selectedLetter = wordSize - 1;
+                } else {
+                    selectedLetter--;
+                }
+                clearTerminal();
+                std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
+                printGridSelected(n, selectedLetter);
+                break;
+            case WIN_KEY_RIGHT:
+                if (selectedLetter == wordSize - 1) {
+                    selectedLetter = 0;
+                } else {
+                    selectedLetter++;
+                }
+                clearTerminal();
+                std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
+                printGridSelected(n, selectedLetter);
+                break;
+            case WIN_ENTER:
+                clearTerminal();
+                printGrid(n);
+                loop = false;
+            default:
+                break;
+        }
+    }
+    #endif
+    #ifdef linux
+    WINDOW *window;
+    int c;
+    // TODO: Linux key press logic
+    bool loop = true;
+    while (loop) {
+        c = getchar();
+        switch (c) {
+            case KEY_UP:
+                // std::cout << "up" << std::endl;
+                switch (grid[n][selectedLetter].color) {
+                    case GREY:
+                        grid[n][selectedLetter].color = ORANGE;
+                    break;
+                    case ORANGE:
+                        grid[n][selectedLetter].color = GREEN;
+                    break;
+                    case GREEN:
+                        grid[n][selectedLetter].color = GREY;
+                    break;
+                }
+                clearTerminal();
+                std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
+                printGridSelected(n, selectedLetter);
+                // for (unsigned int i = 0; i < wordSize; i++) {
+                //     std::cout << grid[n][i].color;
+                // }
+                // std::cout << std::endl;
+                break;
+            case KEY_DOWN:
+                // std::cout << "down" << std::endl;
+                switch (grid[n][selectedLetter].color) {
+                    case GREY:
+                        grid[n][selectedLetter].color = GREEN;
+                    break;
+                    case ORANGE:
+                        grid[n][selectedLetter].color = GREY;
+                    break;
+                    case GREEN:
+                        grid[n][selectedLetter].color = ORANGE;
+                    break;
                 }
                 clearTerminal();
                 std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
@@ -194,20 +273,13 @@ void Guesser::editColors(unsigned int n) {
                 std::cout << "Left/right arrow: select letter, up/down arrow: change color, enter: confirm" << std::endl;
                 printGridSelected(n, selectedLetter);
                 break;
-            case ENTER:
+            case KEY_ENTER:
                 clearTerminal();
                 printGrid(n);
                 loop = false;
             default:
                 break;
         }
-    }
-    #endif
-    #ifdef linux
-    // TODO: Linux key press logic
-    bool loop = true;
-    while (loop) {
-
     }
     #endif
 }
@@ -263,10 +335,10 @@ void Guesser::printGrid(unsigned int n) {
 }
 
 void Guesser::clearTerminal() {
-    //std::cout << "\x1B[2J\x1B[H";
-    if (system("cls")) {
-        system("clear");
-    }
+    std::cout << "\x1B[2J\x1B[H";
+    // if (system("cls")) {
+    //     system("clear");
+    // }
 }
 
 bool Guesser::isNumerical(std::string s) {

@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-#define KEY_UP 72
-#define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
-#define ENTER 13
+#define WIN_KEY_UP 72
+#define WIN_KEY_DOWN 80
+#define WIN_KEY_LEFT 75
+#define WIN_KEY_RIGHT 77
+#define WIN_ENTER 13
 
 const std::string DEFAULT_BACKGROUND = "\033[49m";
 const std::string DEFAULT_FOREGROUND = "\033[39m";

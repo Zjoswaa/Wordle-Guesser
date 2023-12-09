@@ -7,6 +7,7 @@
 #endif
 #ifdef linux
 #include <climits>
+#include <ncurses.h>
 // TODO: Add a library for Linux key press logic
 #endif
 

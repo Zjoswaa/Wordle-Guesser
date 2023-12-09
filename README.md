@@ -19,9 +19,9 @@ If a Makefile was made `cd .\build\ && make`. Then `.\Guesser.exe` to run the pr
 
 If a Visual Studio Solution was made. Open `Guesser.sln` located in the `build` directory. Then build the project in Visual Studio.
 ### Linux
-In the root directory, run `cmake -S ./src/ -B ./build/`. This will generate the build files. Generally a Makefile.
+In the root directory, run `cmake -S ./src/ -B ./build/`. This will generate the build files. For example a Makefile.
 
-If a Makefile was made `cd ./build/ && make`. Then `./Guesser` to run the program.
+`cd ./build/ && "build command"`. For example if a Makefile was made `cd ./build/ && make`. Then `./Guesser` to run the program.
 > **_NOTE:_**  The Linux version can compile but does not work properly yet because of the `conio.h` library not being available for Linux.
 
 ---
