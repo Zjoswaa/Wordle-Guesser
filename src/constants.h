@@ -1,5 +1,5 @@
-#ifndef WORDLE_GUESSER_CONSTANTS_H
-#define WORDLE_GUESSER_CONSTANTS_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
 #include <iostream>
 
